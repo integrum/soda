@@ -1,0 +1,8 @@
+<h3>Talks</h3>
+
+<% @talks.each do |talk| %>
+    <%= link_to talk.name, meeting_talk_path(@meeting,talk) %><br/>
+<% end %>
+
+<%= link_to 'Create a new talk', new_meeting_talk_path(@meeting) %><br/>
+<%= link_to 'Back to meeting', meeting_path(@meeting) %>

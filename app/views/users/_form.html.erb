@@ -1,0 +1,28 @@
+<% form_for @user do |f| %>
+    <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %></div>
+    
+    <% if is_admin? %>
+    <div>
+    <%= f.label :role %>
+    <%= f.text_field :role %></div>
+    
+    <div>
+        <%= f.label :admin %>
+        <%= f.check_box :admin %>
+    </div>
+    <% end %>
+    
+    <div>
+        <%= f.label :send_emails, "Receive email updates?" %>
+        <%= f.check_box :send_emails %>
+    </div>
+    
+    <div>
+        <%= f.label :skill_list %>
+        <%= f.text_area :skill_list %>
+    </div>
+    
+    <%= f.submit "Save" %>
+<% end %>

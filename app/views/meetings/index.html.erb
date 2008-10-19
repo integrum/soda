@@ -1,0 +1,7 @@
+<h3>Meetings</h3>
+
+<% @meetings.each do |meeting| %>
+    <%= link_to meeting.location, meeting %><br/>
+<% end %>
+
+<%= link_to 'Create a new meeting', new_meeting_path %>

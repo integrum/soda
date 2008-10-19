@@ -1,0 +1,5 @@
+<h2><%= @talk.name %></h2>
+
+<p>Presented by: <%= @talk.user.email %></p>
+
+<%= link_to "Back to talks", meeting_talks_path(@meeting) %>

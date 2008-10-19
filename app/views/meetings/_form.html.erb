@@ -1,0 +1,9 @@
+<% form_for @meeting do |f| %>
+    <%= f.label :location %>
+    <%= f.text_field :location%>
+    
+    <%= f.label :meeting_keyword_list %>
+    <%= f.text_field :meeting_keyword_list %>
+    
+    <%= f.submit "Save" %>
+<% end %>
