@@ -19,18 +19,18 @@ ActiveRecord::Schema.define(:version => 20081017041549) do
   end
 
   create_table "rsvps", :force => true do |t|
-    t.integer  "user_id",    :limit => 11
-    t.integer  "meeting_id", :limit => 11
-    t.boolean  "present"
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.boolean  "present",    :default => false
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id",        :limit => 11
-    t.integer  "taggable_id",   :limit => 11
-    t.integer  "tagger_id",     :limit => 11
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.integer  "tagger_id"
     t.string   "tagger_type"
     t.string   "taggable_type"
     t.string   "context"
@@ -45,22 +45,23 @@ ActiveRecord::Schema.define(:version => 20081017041549) do
   end
 
   create_table "talks", :force => true do |t|
-    t.integer  "user_id",              :limit => 11
-    t.integer  "meeting_id",           :limit => 11
-    t.integer  "upload_id",            :limit => 11
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.integer  "upload_id"
     t.string   "name"
+    t.text     "external_embed"
     t.text     "abstract_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "uploads", :force => true do |t|
-    t.integer  "size",         :limit => 11
+    t.integer  "size"
     t.string   "content_type"
     t.string   "filename"
-    t.integer  "height",       :limit => 11
-    t.integer  "width",        :limit => 11
-    t.integer  "parent_id",    :limit => 11
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "parent_id"
     t.string   "thumbnail"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20081017041549) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.string   "role"
-    t.boolean  "admin"
+    t.boolean  "admin",                                    :default => false
     t.boolean  "send_emails",                              :default => true
   end
 

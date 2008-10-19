@@ -3,7 +3,7 @@
 development:
   adapter: mysql
   database: soda_development
-  host: localhost
+  host: 192.168.1.102
   user: root
   password:
   timeout: 5000

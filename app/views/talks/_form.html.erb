@@ -1,12 +1,18 @@
 <% form_for [@meeting,@talk], :html => {:multipart => true} do |f| %>
-    <%= f.label :name %>
+    <%= f.label :name, "Talk name:" %>
     <%= f.text_field :name %>
+    
+    <%= f.label :abstract_description, "Abstract" %>
+    <%= f.text_area :abstract_description %>
     
     <%= f.label :user_id %>
     <%= f.select :user_id, user_drop_down_options %>
     
     <%= f.label :uploaded_data %>
     <%= f.file_field :uploaded_data %>
+    
+    <%= f.label :external_embed %>
+    <%= f.text_field :external_embed %>
     
     <%= f.submit "Save" %>
 <% end %>

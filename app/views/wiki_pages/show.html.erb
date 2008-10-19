@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @wiki_page.slug %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @wiki_page.wiki_body %>
+</p>
+
+
+<%= link_to 'Edit', edit_wiki_page_path(@wiki_page) %> |
+<%= link_to 'Back', wiki_pages_path %>

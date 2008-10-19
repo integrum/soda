@@ -3,7 +3,7 @@ class CreateTalks < ActiveRecord::Migration
     create_table :talks do |t|
       t.integer :user_id, :meeting_id, :upload_id
       t.string :name
-      t.text :abstract_description     
+      t.text :abstract_description, :external_embed  
       t.timestamps
     end
   end

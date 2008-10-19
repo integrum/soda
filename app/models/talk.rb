@@ -1,7 +1,7 @@
 class Talk < ActiveRecord::Base
   belongs_to :meeting
   belongs_to :user
-  belongs_to :upload
+  belongs_to :upload, :dependent => :destroy
   
   attr_accessor :user_id
   

@@ -1,7 +1,12 @@
 <h3>Talks</h3>
 
 <% @talks.each do |talk| %>
-    <%= link_to talk.name, meeting_talk_path(@meeting,talk) %><br/>
+    <%= link_to talk.name, meeting_talk_path(@meeting,talk) %>
+    <% admin_only_content(@current_user) do %>
+      <%= link_to 'Edit', edit_meeting_talk_path(@meeting,talk) %> |
+      <%= link_to 'Destroy', meeting_talk_path(@meeting,talk), :method => :delete %>
+    <% end %>
+    <br/>
 <% end %>
 
 <%= link_to 'Create a new talk', new_meeting_talk_path(@meeting) %><br/>

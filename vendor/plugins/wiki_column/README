@@ -1,0 +1,4 @@
+WikiColumn
+==========
+
+WikiColumn provides wiki functionality to any attribute of a class. It uses RedCloth for HTML substitution and a custom wiki parser for creating urls.

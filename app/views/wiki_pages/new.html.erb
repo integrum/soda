@@ -1,0 +1,19 @@
+<h1>New wiki_page</h1>
+
+<% form_for(@wiki_page) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :slug, "Title" %><br />
+    <%= f.text_field :slug %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', wiki_pages_path %>

@@ -1,7 +1,7 @@
 class Meeting < ActiveRecord::Base
   has_many :rsvps
   has_many :users, :through => :rsvps
-  has_many :talks
+  has_many :talks, :dependent => :destroy
   
   acts_as_taggable_on :meeting_keywords
   
