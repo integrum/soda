@@ -1,5 +1,14 @@
 <div>
-    <div>Login: <%= user.login %></div>
-    <div>Admin?: <%= user.admin %></div>
-    <div>Skills: <%= user.skills.join(', ') %></div>
+    <dl>
+	<dt>Login</dt>
+	<dd><%= user.login %></dd>
+	
+    <% if user.admin? %>
+	<dt>Admin</dt>
+	<% end %>
+	
+	<dt>Skills</dt>
+	<dl><%= user.skills.join(', ') %></dl>
+	
+	<dt><%= link_to "View Profile", user_path(user) %></dt>
 </div><br/>

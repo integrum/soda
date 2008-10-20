@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20081019232410) do
     t.integer  "meeting_id"
     t.integer  "upload_id"
     t.string   "name"
-    t.text     "external_embed"
     t.text     "abstract_description"
     t.datetime "created_at"
     t.datetime "updated_at"

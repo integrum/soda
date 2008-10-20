@@ -8,6 +8,14 @@
 </html>
 
 <body>
+	<div id="nav">
+		<ul>
+			<li><%= link_to 'Home', '/'%></li>
+			<li><%= link_to 'Meetings', meetings_path %></li>
+			<li><%= link_to 'Users', users_path %></li>
+			<li><%= link_to 'Wiki', wiki_index_path %></li>
+		</ul>
+	</div>
     <%= render :partial => 'users/user_bar' %>
     <%= yield %>
 </body>

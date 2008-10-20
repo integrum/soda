@@ -1,15 +1,27 @@
-Email: <%= @user.email %><br/>
-Title: <%= @user.role %><br/>
-Admin: <%= @user.admin %><br/>
-Skills: <%= @user.skills.join(',') %><br/>
+<dl>
+	<dt>Email</dt>
+	<dd><%= @user.email %></dd>
+	
+	<dt>Title</dt>
+	<dd><%= @user.role %></dd>
+	
+	<dt>Admin</dt>
+	<dd><%= @user.admin %></dd>
+	
+	<dt>Skills</dt>
+	<dd><%= @user.skills.join(',') %></dd>
+</dl>
 
 <% if @user.send_emails? %>
     <% form_for 'notification', :url => email_user_path(@user) do |f| %>
-        <%= label_tag 'message', "Message" %>
-        <%= text_area_tag 'message' %>
+		<div class="formField">
+	        <%= label_tag 'message', "Message" %>
+	        <%= text_area_tag 'message' %>
+		</div>
         
         <%= f.submit 'Send!' %>
     <% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Back to users', users_path %>
