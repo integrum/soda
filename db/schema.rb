@@ -9,10 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081017041549) do
+ActiveRecord::Schema.define(:version => 20081019232410) do
 
   create_table "meetings", :force => true do |t|
+    t.string   "title"
     t.string   "location"
+    t.text     "description"
     t.datetime "occurs_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,5 +85,12 @@ ActiveRecord::Schema.define(:version => 20081017041549) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "wiki_pages", :force => true do |t|
+    t.string   "slug"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

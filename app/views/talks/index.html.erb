@@ -1,13 +1,25 @@
-<h3>Talks</h3>
+<h3>Talks for meeting at <%= @meeting.location %> on <%= @meeting.occurs_at.to_s(:long) %></h3>
 
-<% @talks.each do |talk| %>
-    <%= link_to talk.name, meeting_talk_path(@meeting,talk) %>
-    <% admin_only_content(@current_user) do %>
-      <%= link_to 'Edit', edit_meeting_talk_path(@meeting,talk) %> |
-      <%= link_to 'Destroy', meeting_talk_path(@meeting,talk), :method => :delete %>
+<table>
+  <thead>
+    <th>
+      Name
+    </th>
+  </thead>
+  <tbody>
+    <% @talks.each do |talk| %>
+    <tr>
+        <td><%= link_to talk.name, meeting_talk_path(@meeting,talk) %>
+        <% admin_only_content do %>
+        
+          <%= link_to 'Edit', edit_meeting_talk_path(@meeting,talk) %> |
+          <%= link_to 'Destroy', meeting_talk_path(@meeting,talk), :method => :delete %>
+        <% end %>
     <% end %>
-    <br/>
-<% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Create a new talk', new_meeting_talk_path(@meeting) %><br/>
 <%= link_to 'Back to meeting', meeting_path(@meeting) %>

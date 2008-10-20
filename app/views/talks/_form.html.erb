@@ -1,18 +1,30 @@
 <% form_for [@meeting,@talk], :html => {:multipart => true} do |f| %>
+  <div class="formField">
     <%= f.label :name, "Talk name:" %>
     <%= f.text_field :name %>
+  </div>
     
+  <div class="formField">
     <%= f.label :abstract_description, "Abstract" %>
     <%= f.text_area :abstract_description %>
+  </div>
     
+  <div class="formField">
     <%= f.label :user_id %>
     <%= f.select :user_id, user_drop_down_options %>
+  </div>
     
+  <div class="formField">
     <%= f.label :uploaded_data %>
     <%= f.file_field :uploaded_data %>
+  </div>
     
+  <div class="formField">
     <%= f.label :external_embed %>
     <%= f.text_field :external_embed %>
+  </div>
     
+  <div class="formField">
     <%= f.submit "Save" %>
+  </div>
 <% end %>

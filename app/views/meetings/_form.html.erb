@@ -1,12 +1,25 @@
 <% form_for @meeting do |f| %>
+  <div class="formField">
     <%= f.label :location %>
     <%= f.text_field :location%>
+  </div>
+  
+  <div class="formField">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
     
+  <div class="formField">
     <%= f.label :meeting_keyword_list %>
     <%= f.text_field :meeting_keyword_list %>
+  </div>
     
+  <div class="formField">
     <%= f.label :occurs_at %>
     <%= f.datetime_select :occurs_at %>
+  </div>
     
+  <div class="formField">
     <%= f.submit "Save" %>
+  </div>
 <% end %>

@@ -1,10 +1,41 @@
 <h3>Meeting</h3>
 
-Location: <%= @meeting.location %>
-<br/>
-Keywords: <%= @meeting.meeting_keywords.join(', ') %>
-<br/>
-<%= link_to 'View the talks', meeting_talks_path(@meeting) %>
+<dl>
+  <dt>When/Where</dt>
+  <dd><%= h @meeting.occurs_at.to_s(:long)%> <%= h @meeting.location %></dd>
+
+  <dt>Description</dt>
+  <dd><%= h @meeting.description %></dd>
+  <dt>Keywords</dt>
+  <dd><%= h @meeting.meeting_keywords.join(', ') %></dd>
+
+  <dt>Talks</dt>
+  <dd><table>
+    <thead>
+      <th>
+        Name
+      </th>
+    </thead>
+    <tbody>
+      <% @meeting.talks.each do |talk| %>
+      <tr>
+          <td><%= link_to talk.name, meeting_talk_path(@meeting,talk) %>
+          <% admin_only_content do %>
+
+            <%= link_to 'Edit', edit_meeting_talk_path(@meeting,talk) %> |
+            <%= link_to 'Destroy', meeting_talk_path(@meeting,talk), :method => :delete %>
+          <% end %>
+      <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <% admin_only_content do %>
+    <%= link_to 'Create a new talk', new_meeting_talk_path(@meeting) %><br/>
+  <% end %>
+  </dd>
+  
+</dl>
 
 <div id="rsvp">
     <% if logged_in? %>
@@ -18,7 +49,7 @@ Keywords: <%= @meeting.meeting_keywords.join(', ') %>
     <% end %>
 </div>
 
-<% admin_only_content(@current_user) do %>
+<% admin_only_content do %>
     <div>
         <table>
             <thead>
@@ -39,7 +70,7 @@ Keywords: <%= @meeting.meeting_keywords.join(', ') %>
     </div>
 <% end %>
 
-<% if is_admin? %>
+<% admin_only_content do %>
     <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <% end %>
 <%= link_to 'Back to meetings', meetings_path %>

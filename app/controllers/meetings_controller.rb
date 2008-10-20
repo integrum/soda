@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show]
   def index
     @meetings = Meeting.all
   end

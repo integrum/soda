@@ -5,9 +5,9 @@ module ApplicationHelper
     @current_user.admin?
   end
   
-  def admin_only_content(user)
-    return false if user.blank?
-    yield if user.admin?
+  def admin_only_content
+    return false if @current_user.blank?
+    yield if @current_user.admin?
   end
   
   def user_drop_down_options

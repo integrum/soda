@@ -1,21 +1,6 @@
 <h1>Listing wiki_pages</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
-
-<% for wiki_page in @wiki_pages %>
-  <tr>
-    <td><%=h wiki_page.slug %></td>
-    <td><%=h wiki_page.body %></td>
-    <td><%= link_to 'Show', wiki_page %></td>
-    <td><%= link_to 'Edit', edit_wiki_page_path(wiki_page) %></td>
-    <td><%= link_to 'Destroy', wiki_page, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => 'wiki_page', :collection => WikiPage.random_set.most_recent_10 %>
 
 <br />
 

@@ -33,8 +33,8 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin
-    require_login
-    unless @current_user.admin?
+    self.require_login
+    unless @current_user.blank? or @current_user.admin?
       flash[:notice] = "You must be an admin to perform this action."
       redirect_to '/'
     end

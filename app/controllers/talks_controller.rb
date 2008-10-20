@@ -2,9 +2,9 @@ class TalksController < ApplicationController
   before_filter :find_meeting
   before_filter :require_admin, :except => [:index,:show]
   
-  def index
-    @talks = @meeting.talks
-  end
+  # def index
+  #   @talks = @meeting.talks
+  # end
   
   def show
     @talk = @meeting.talks.find(params[:id])

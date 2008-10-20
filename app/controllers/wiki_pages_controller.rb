@@ -2,7 +2,7 @@ class WikiPagesController < ApplicationController
   # GET /wiki_pages
   # GET /wiki_pages.xml
   def index
-    @wiki_pages = WikiPage.find(:all)
+    @wiki_pages = WikiPage.random_set.most_recent_10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class WikiPagesController < ApplicationController
   # GET /wiki_pages/new.xml
   def new
     @wiki_page = WikiPage.new
-    @wiki_page.slug = params[:wiki_page][:slug]
+    @wiki_page.slug = params[:wiki_page][:slug] unless params[:wiki_page].blank?
 
     respond_to do |format|
       format.html # new.html.erb

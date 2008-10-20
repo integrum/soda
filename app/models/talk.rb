@@ -3,6 +3,9 @@ class Talk < ActiveRecord::Base
   belongs_to :user
   belongs_to :upload, :dependent => :destroy
   
+  validates_presence_of :name
+  validates_presence_of :abstract_description
+  
   attr_accessor :user_id
   
   def user_id=(user_id)

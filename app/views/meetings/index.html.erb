@@ -1,9 +1,17 @@
 <h3>Meetings</h3>
 
-<% @meetings.each do |meeting| %>
-    <%= link_to meeting.location, meeting %><br/>
-<% end %>
+<div id="meeting_search">
+  
+</div>
 
-<%= link_to 'Create a new meeting', new_meeting_path %>
+<div>
+  <% @meetings.each do |meeting| %>
+    <%= link_to "#{meeting.location} on #{meeting.occurs_at.to_s(:long) }", meeting %><br/>
+  <% end %>
+</div>
+
+<% admin_only_content do %>
+  <%= link_to 'Create a new meeting', new_meeting_path %>
+<% end %>
 
 <%= link_to 'Back to main', :controller => :welcome %>
