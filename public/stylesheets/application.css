@@ -1,2 +1,6 @@
 body { padding: 25px;}
 label {display: block; clear: right;}
+
+.block {display:block ;}
+div#nav li { list-style-type: none; display: inline; padding: 25px;}
+div#user_bar { float:right;}

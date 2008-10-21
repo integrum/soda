@@ -1,9 +1,11 @@
 set :application, "soda"
-set :repository, "git://github.com/integrum/soda.git"
+set :repository, "git@github.com:integrum/soda.git"
+
+set :use_sudo, false
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
-# set :scm, :subversion
+set :scm, :git
 set :scm_username, 'deploy'
 set :scm_password, 'it2005'
 set :user, 'deploy'

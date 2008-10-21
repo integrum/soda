@@ -9,7 +9,10 @@
 <% end %>
 
 <% unless @talk.external_embed.blank? %>
-<p>External Video: <%= @talk.external_embed %></p>
+<p><span class="block">External Video:</span> <%= @talk.external_embed %></p>
 <% end %>
 
+<% admin_only_content do %>
+	<%= link_to 'Edit', edit_meeting_talk_path(@meeting,@talk) %>
+<% end %>
 <%= link_to "Back to meeting", meeting_path(@meeting) %>
