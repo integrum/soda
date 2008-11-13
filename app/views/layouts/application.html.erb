@@ -1,29 +1,62 @@
-<html>
-    <head>
-        <title>SoDA</title>
-        <%= stylesheet_link_tag 'reset', 'screen', 'application' %>
-    </head>
-    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="UTF-8" />	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>SoDA - ASU Software Developers Association</title>
+
+	<meta name="description" content="Arizona State University Software Developers Association website (ASU SoDA) with archived tech talk presentations" />
+	<!--<script type="text/javascript" src="http://pan.alanhogan.com/js/basic-dom.js"></script>
+	<script type="text/javascript" src="http://pan.alanhogan.com/js/collapsible.js"></script>-->
+	<link rel="stylesheet" type="text/css" href="http://alanhogan.com/hs_public/css/reset-and-hscms4.css?20080112012133" />
+    <%= stylesheet_link_tag 'reset', 'screen', 'application', 'soda' %>
+	<script type="text/javascript">
+	document.write(String.fromCharCode(60)+'style type="text/css"'+String.fromCharCode(62)+'.jsHide {display: none;}'+fromCharCode(60)+'/style'+fromCharCode(62));
+	</script>
     <%= javascript_include_tag :defaults %>
-</html>
-
+	<!-- Browser Upgrade Nag by Pushup (pushuptheweb.com) -->
+	<link rel='stylesheet' type='text/css' href='http://pan.alanhogan.com/css/pushup.css' />
+	<script type='text/javascript' src='http://pan.alanhogan.com/js/pushup.js'></script>
+	<!-- end pushup -->
+	<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/asusoda" title="SoDA News and Updates" />
+</head>
 <body>
-	<div id="page_header">
-		<div id="user_bar">
-			<%= render :partial => 'users/user_bar' %>
-		</div>
-		
-		<div id="nav">
-			<ul>
-				<li><%= link_to 'Home', '/'%></li>
-				<li><%= link_to 'Meetings', meetings_path %></li>
-				<li><%= link_to 'Users', users_path %></li>
-				<li><%= link_to 'Wiki', wiki_index_path %></li>
-			</ul>
-		</div>
-		
+	<div id="bigWrap">
+		<div class="header topLogoBar" style="">
+		<h1 style="margin:0;padding:0;"><a href="/" title="SoDA Home"><img src="/images/biglogo.gif" alt="SoDA - ASU Software Developers Association, asusoda.com" /></a></h1>
+			<div id="page_header">
+				<div id="user_bar">
+					<%= render :partial => 'users/user_bar' %>
+				</div><!--user_bar-->
+			
+				<div id="nav">
+					<ul>
+						<li><%= link_to 'Home', '/'%></li>
+						<li><%= link_to 'Meetings', meetings_path %></li>
+						<li><%= link_to 'Users', users_path %></li>
+						<li><%= link_to 'Wiki', wiki_index_path %></li>
+					</ul>
+				</div><!--nav-->
+			
+	
+			</div><!--page_header-->
+		</div><!--.header.topLogoBar-->
+	
+	<div id="content">	
 
-	</div>
-    
     <%= yield %>
+
+		<!--	
+			...Possibly a calendar of events to which members can subscribe...
+		-->
+		<div class="bottomStuff">
+			<p class="finePrint">Content &amp; design &copy; <?php print date('Y'); ?> ASU SoDA and respective members. &nbsp; <a href="http://alanhogan.com/contact?reason=soda_webmaster">Contact webmaster</a>.&nbsp;  
+			<a href="http://feeds.feedburner.com/asusoda" title="SoDA News and Updates - Twitter-powered RSS" style="position: relative; top: 1px;"><img src="/images/rss-07.png" style="height:12px;width:12px;" alt="RSS feed" /></a>
+			<a href="http://feeds.feedburner.com/asusoda" title="SoDA News and Updates - Twitter-powered RSS">Feed</a>.</p>
+		</div>
+	</div><!--content-->
+	</div><!--bigWrap-->
+
+
 </body>
+</html>

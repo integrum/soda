@@ -1,0 +1,228 @@
+body {
+	font-family: Arial, Helvetica Neue, Helvetica, Sans-serif;
+	font-size: 0.9em;
+	line-height: 1.4em;
+	color: black;
+	background: white url(/images/topbg.gif) 15px 0 repeat-x;
+}
+/*** Design and Layout ***/
+.topLogoBar {
+	width:100%;padding:0;margin:0;
+
+}
+.topLogoBar h1 {
+	position: relative;
+	left: -109px;
+}
+.header h1 {
+	text-align: left;
+}
+#bigWrap{
+	width: 550px;
+	margin: 10px auto 10px;
+}
+
+#content{
+}
+
+#underDada, .bottomStuff {
+	margin: 1.5em 0;
+	padding: 1.5em 0 0 0;
+	border-top: 1px solid #707377;
+	color: #707377;
+}
+#underDada p, .bottomStuff p {
+	margin: 0;
+}
+.DadaPropsLink {
+-moz-opacity: 0.75;
+opacity: 0.75; 
+}
+
+/***  Bread and Butter  ***/
+
+/**from yui reset**/
+/* to preserve line-height and selector appearance */
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+/*to enable resizing for IE*/
+input,textarea,select{*font-size:100%;}
+/*because legend doesn't inherit in IE */
+legend{color:#000;}
+/**end from yui reset**/
+
+h2 {
+	margin-top: 0.8em;
+}
+p, ul, li, blockquote, h3, h4 {
+ margin: 1.4em 0;
+}
+a img {border: 0;}
+table.data {
+	border-collapse: collapse;
+	border: 1px solid #585c60;
+}
+table.data th, table.data td {
+	padding: 0.2em;
+	border: 1px solid #aaadb0;
+}
+table.data tbody tr:hover { 
+	background: #efefef none; 
+}
+abbr, acronym {
+	border-bottom: 1px dotted #888;
+}
+.finePrint {
+	font-size: 85%;
+}
+.italic {
+	font-style: italic; 
+}
+
+a:link {color: #0f3e90;}
+a:visited {color: #6f1e84} 
+a:link:hover {color: #1f52aa;}
+a:visited:hover {color: #7f2b99}
+* html a:hover {color: #1f52aa;} /*IE blows!*/
+
+
+/** Alan standard CSS (HS-CMS style) ***/
+
+.floatRight, colorfulFloatRight {
+	float: right;
+	margin-left: 0.5em;
+	clear: right;
+}
+
+.floatLeft, colorfulFloatLeft {
+	float: left;
+	margin-right: 0.5em;
+	clear: left;
+}
+
+.colorfulFloatLeft, .colorfulFloatRight {
+	padding: 0.7em 0.9em;
+	font-size: 150%;
+	color: #aaa;
+	margin-top: 1.2em;
+}
+
+.colorfulFloatRight {
+	border-left: 1px solid #444;
+	padding-right: 0;
+}
+
+.colorfulFloatLeft {
+	border-right: 1px solid #444;
+	padding-right: 0;
+}
+.smallFloat {
+	width: 9em;
+}
+
+
+.floatLeft p, .colorfulFloatLeft p, .floatRight p, .colorfulFloatRight p {
+	margin: 0 0 0 0;
+	padding: 0;
+	text-indent: 0;
+}
+
+
+/***  For hCalendar microformat  ***/
+abbr.dtstart, abbr.dtend {
+	border-bottom: none;
+}
+
+
+/*** Stuff from Dada's default_css.css ***/
+	
+	#breadcrumbs {
+	}
+	
+	#help_link {
+		float:right;
+		margin-top:2em;
+		font-weight:bold;
+		clear:both;
+	}
+	
+	#root_login_message {
+		float:right;
+		margin-right:0.5em;
+		color:#fff;
+	}
+	
+	/* ----- CLASSES ----- */
+	
+	.disabled {
+		background-color:#ccc;
+		border:1px solid #fff;
+	}
+	.error {
+		font-family:Verdana,Arial,sans-serif;
+		font-size:11px;
+		font-style:italic;
+		color:#600;
+	}
+	.hidden {
+		display:none;
+	}
+	.greyed_out { 
+		color: #ccc;
+		font-style:italic;
+	}
+	.highlighted { 
+		font-style: normal;
+		background-color:#6F3;
+	
+	}
+	p.link_to_screen {
+		text-align:right;
+		font-weight:bold;
+	}
+	.positive {
+		font-family:Verdana,Arial,sans-serif;
+		font-size:11px;
+		color:#063;
+	}
+	.simplebox {
+		padding:7px;
+		border:1px solid #000;
+		background-color:#fff;
+	}
+	.login_message { 
+		float: right; 
+		padding:5px;
+		/* width:150px; */
+		background-color:#ff9;
+		border:1px dotted #333;
+	}
+	.login_message p { 
+		line-height: 100%;
+	}
+	.login_message ul { 
+		list-style-type: square;
+		color: #ccc;
+		
+	}
+
+
+/***  Twitter  ***/
+#twitter_update_list, #twitter_update_list li {
+	list-style-type: none;
+	margin: 0;padding: 0;
+}
+#twitter_update_list li {
+	padding: .3em;
+	border: 1px solid #ccc; margin:.3em 0; 
+}
+#twitter_update_list li:hover { 
+	background: #efefef none; 
+}
+.additionalRowsSortof td {
+	color: #4f4f4f; font-size: 85%;
+}
+
+
+

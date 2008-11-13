@@ -14,6 +14,5 @@ module ApplicationHelper
     User.all.collect do |user|
       [user.email, user.id]
     end
-    
   end
 end
