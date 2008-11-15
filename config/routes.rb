@@ -7,6 +7,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users, :member => {:email => :post}
+  map.billofrights '/billofrights', :controller => 'welcome', :action => 'new'
+  map.robotics08 '/robotics08', :controller => 'welcome', :action => 'robotics08'
 
   map.resource :session
   
