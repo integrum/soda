@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
   
-  
+  #Here instead of in users_helper because we want to show it on pages like talks
   def gravatar (email, options = {})
   	email.downcase!
   	if options[:size].nil?
@@ -25,10 +25,18 @@ module ApplicationHelper
   	if options[:r].nil?
   		options[:r] = 'pg' #gravatar site default is g
   	end
-  	# Generate Gravatar - reference implementation tweaked slightly.
-	#require 'MD5' #include MD5 gem, should be part of standard ruby install
-	#hash = MD5::md5(email)
-	hash = 'notarealhash'
+  	# Generate Gravatar using MD5 gem or, if not available, command line 'md5sum'
+	begin
+		require 'MD5' #include MD5 gem, should be part of standard ruby install
+		hash = MD5::md5(email)
+	rescue
+		begin
+			matches = `echo -n #{email} | md5sum`.scan(/^\w+/)
+			hash = matches.first.first
+		rescue
+			hash = 'sodanotarealhash'
+		end
+	end
 	#Ready to use in <img />:
 	gravatar_image_src = "http://www.gravatar.com/avatar/#{hash}"
   	h(gravatar_image_src+"?r="+options[:r]+"&s="+Integer(options[:size]).to_s+"&d=wavatar")

@@ -5,7 +5,9 @@
 		<%= link_to h("#{user.name} (#{user.login})"), user_path(user) %>
 		<% if user.admin? %><span class="adminBadge">admin</span><% end %>
 		<% unless current_user.blank? or !current_user.admin? %>
-			<%= link_to "Delete Forever", {:action=>'destroy', :id => user.id} %>
+			<% link_to "Delete Forever", {:action=>'destroy', :id => user.id} 
+			#disabled. TODO: move to show.html.erb
+			%>
 		<% end %>
 	</dt>
 		<% if user.skills.length > 0 %>

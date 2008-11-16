@@ -5,14 +5,22 @@
 <p>Presented by: <%=h @talk.user.email %></p>
 
 <% unless @talk.upload.blank? %>
-<p>Download: <%= link_to 'Talk', @talk.upload.public_filename %></p>
+<% matches = @talk.upload.public_filename.scan(/(\.\w+\.?\w+)\Z/) #\Z: End of string
+   filename_extension = matches.first.first.upcase
+	if filename_extension.blank?
+		filename_extension.blank = 'presentation'
+	end
+ %>
+<div class="talk_download">Download: <%= link_to filename_extension, @talk.upload.public_filename %></div>
 <% end %>
 
 <% unless @talk.external_embed.blank? %>
-<p><span class="block">External Video:</span> <%= @talk.external_embed %></p>
+<div class="talk_external_embed"><%= @talk.external_embed %></div>
 <% end %>
 
 <% admin_only_content do %>
 	<%= link_to 'Edit', edit_meeting_talk_path(@meeting,@talk) %>
 <% end %>
+<div class="return">
 <%= link_to "Back to meeting", meeting_path(@meeting) %>
+</div>
