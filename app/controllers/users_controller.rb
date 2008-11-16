@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show, :create, :new, :email, :edit, :update, :destroy]
+  before_filter :require_login, :except => [:index, :show, :create, :new]
+  
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
 
@@ -12,10 +15,16 @@ class UsersController < ApplicationController
   end
   
   def edit
+  	if current_user.blank? or (Integer(params[:id]) != Integer(current_user.id) and !current_user.admin?)
+	  	redirect_to '/'
+  	end
     @user = User.find(params[:id])
   end
   
   def update
+  	if current_user.blank? or (Integer(params[:id]) != Integer(current_user.id) and !current_user.admin?)
+	  	redirect_to '/'
+  	end
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
     y @user.skills
@@ -33,6 +42,9 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
+    if @user && @user.name.empty?
+    	@user.name = @user.login.gsub(/[-_.]+/,' ').strip.titlecase
+    end
     success = @user && @user.save
     if success && @user.errors.empty?
             # Protects against session fixation attacks, causes request forgery
@@ -46,5 +58,14 @@ class UsersController < ApplicationController
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'
     end
+  end
+  
+  def destroy
+  	 if current_user.blank? or (Integer(params[:id]) != Integer(current_user.id) and !current_user.admin?)
+	  	redirect_to '/'
+  	end
+  	@user = User.find(params[:id])
+  	@user.destroy
+  	redirect_to users_path
   end
 end

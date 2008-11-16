@@ -1,15 +1,27 @@
+<div class="profileAvatar">
+	<img src="<%= gravatar @user.email, :size =>80 %>" alt="User Avatar" title="" />
+</div>
+<h1><%= h @user.name %></h1>
 <dl>
-	<dt>Email</dt>
-	<dd><%= @user.email %></dd>
-	
+	<% if can_edit_user %>
+	<dt class="private">Email</dt>
+	<dd class="private"><%= h @user.email %></dd>
+    <% end %>
+    
+    <% if !@user.role.blank? %>	
 	<dt>Title</dt>
-	<dd><%= @user.role %></dd>
+	<dd><%= h @user.role %></dd>
+	<% end %>
 	
+	<% if @user.admin? %>
 	<dt>Admin</dt>
-	<dd><%= @user.admin %></dd>
+	<dd><%= h @user.admin %></dd>
+	<% end %>
 	
+	<% if @user.skills.length > 0 %>
 	<dt>Skills</dt>
-	<dd><%= @user.skills.join(',') %></dd>
+	<dd><%= h @user.skills.join(', ') %></dd>
+	<% end %>
 </dl>
 
 <% if @user.send_emails? %>
@@ -23,5 +35,6 @@
     <% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= (can_edit_user ? (link_to 'Edit', edit_user_path(@user)) : '') %>
+<br />
 <%= link_to 'Back to users', users_path %>

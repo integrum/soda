@@ -1,12 +1,25 @@
 <% form_for @user do |f| %>
     <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+    <div>
+    <%= f.label :login %>
+    <%= f.text_field :login %>
+    </div>
+    
+    <div>
     <%= f.label :email %>
-    <%= f.text_field :email %></div>
+    <%= f.text_field :email %>
+    Email will be used to generate a <a href="http://en.gravatar.com/">gravatar</a>.
+    </div>
     
     <% if is_admin? %>
     <div>
     <%= f.label :role %>
-    <%= f.text_field :role %></div>
+    <%= f.text_field :role %>
+    </div>
     
     <div>
         <%= f.label :admin %>

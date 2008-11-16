@@ -89,5 +89,13 @@ module UsersHelper
       link_to_login_with_IP content_text, options
     end
   end
+  
+  def can_edit_user
+	  unless @current_user.blank? or (@user.id != @current_user.id and !@current_user.admin?)
+	  	true
+	  else 
+	  	false
+  	  end
+  end
 
 end

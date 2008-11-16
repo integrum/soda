@@ -1,14 +1,15 @@
-<div>
+<div class="userListItem">
     <dl>
-	<dt>Login</dt>
-	<dd><%= user.login %></dd>
-	
-    <% if user.admin? %>
-	<dt>Admin</dt>
-	<% end %>
-	
-	<dt>Skills</dt>
-	<dl><%= user.skills.join(', ') %></dl>
-	
-	<dt><%= link_to "View Profile", user_path(user) %></dt>
-</div><br/>
+	<dt><img src="<%= gravatar user.email, :size=>16 %>" 
+		style="width:16px;height:16px;" />
+		<%= link_to h("#{user.name} (#{user.login})"), user_path(user) %>
+		<% if user.admin? %><span class="adminBadge">admin</span><% end %>
+		<% unless current_user.blank? or !current_user.admin? %>
+			<%= link_to "Delete Forever", {:action=>'destroy', :id => user.id} %>
+		<% end %>
+	</dt>
+		<% if user.skills.length > 0 %>
+			<dd>Skills: <%= h user.skills.join(', ') %></dd>
+		<% end %>
+	</dl>
+</div>

@@ -224,5 +224,21 @@ abbr.dtstart, abbr.dtend {
 	color: #4f4f4f; font-size: 85%;
 }
 
-
-
+/*For parts of profiles or other information that is visible to the currently logged-in user but not the general public.*/
+.private {
+	background-color: #fee;
+}
+.userListItem {
+	margin-bottom: 1em;
+}
+.adminBadge {
+ color: olive;
+ font-weight: bold;
+ font-size: 80%;
+ font-style: italic;
+}
+.profileAvatar {
+	float: left;
+	margin: 0 0.5em 0.5em 0;
+	border: 1px solid black;
+}
