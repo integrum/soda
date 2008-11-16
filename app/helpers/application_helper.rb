@@ -27,7 +27,7 @@ module ApplicationHelper
   	end
   	# Generate Gravatar using MD5 gem or, if not available, command line 'md5sum'
 	begin
-		require 'MD5' #include MD5 gem, should be part of standard ruby install
+		include 'MD5' #include MD5 gem, should be part of standard ruby install
 		hash = MD5::md5(email)
 	rescue
 		begin
