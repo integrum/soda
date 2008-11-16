@@ -26,7 +26,7 @@ module ApplicationHelper
   		options[:r] = 'pg' #gravatar site default is g
   	end
   	# Generate Gravatar - reference implementation tweaked slightly.
-	require 'MD5' #include MD5 gem, should be part of standard ruby install
+	#require 'MD5' #include MD5 gem, should be part of standard ruby install
 	hash = MD5::md5(email)
 	#Ready to use in <img />:
 	gravatar_image_src = "http://www.gravatar.com/avatar/#{hash}"
