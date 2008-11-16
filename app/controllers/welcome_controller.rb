@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   end
   #GET /billofrights
   def billofrights
-  	render :template => 'billofrights'
+  
   end
   def robotics08
   
