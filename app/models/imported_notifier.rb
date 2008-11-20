@@ -3,7 +3,7 @@ class ImportedNotifier < ActionMailer::Base
    def gocrazy(name,email,username,password)
      recipients "\"#{name}\" <#{email}>"
      from       "news@asusoda.com"
-     subject    "[SoDA] Website & Mailing List Migration: Username & Password (IMPORTANT)"
+     subject    "[SoDA] Website & Mailing List Migration: Username & Password"
      body       "Dear #{name}, \n\nAs a subscriber on the ASU SoDA email list, you have " +
      	"been automatically migrated to our new website and email system.\n\n" +
      	"Your username is #{username} and your password is #{password}.  This is " +
@@ -17,3 +17,5 @@ class ImportedNotifier < ActionMailer::Base
      headers	'return-path' => 'bounces@asusoda.com'
    end
 end
+
+# TODO: Talk about gravatars, privacy, skill list, résumé, personal URL, changing Password
