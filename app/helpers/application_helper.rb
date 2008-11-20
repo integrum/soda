@@ -23,7 +23,7 @@ module ApplicationHelper
   		options[:size] = 80
   	end
   	if options[:r].nil?
-  		options[:r] = 'pg' #gravatar site default is g
+  		options[:r] = 'g' #gravatar site default is g
   	end
   	# Generate Gravatar using MD5 gem or, if not available, command line 'md5sum'
 	begin

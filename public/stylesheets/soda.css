@@ -56,7 +56,7 @@ legend{color:#000;}
 h2 {
 	margin-top: 0.8em;
 }
-p, ul, li, blockquote, h3, h4 {
+p, blockquote, h3, h4 {
  margin: 1.4em 0;
 }
 a img {border: 0;}
@@ -90,13 +90,13 @@ a:visited:hover {color: #7f2b99}
 
 /** Alan standard CSS (HS-CMS style) ***/
 
-.floatRight, colorfulFloatRight {
+.floatRight, .colorfulFloatRight {
 	float: right;
 	margin-left: 0.5em;
 	clear: right;
 }
 
-.floatLeft, colorfulFloatLeft {
+.floatLeft, .colorfulFloatLeft {
 	float: left;
 	margin-right: 0.5em;
 	clear: left;
