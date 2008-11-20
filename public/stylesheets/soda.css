@@ -3,7 +3,7 @@ html body {
 	font-size: 0.9em;
 	line-height: 1.4em;
 	color: black;
-	background: white url(/images/topbg.gif) 15px 0 repeat-x;
+	background: white url(/images/topbg.gif)  repeat-x  0 10px;
 }
 /*** Design and Layout ***/
 .topLogoBar {
@@ -19,7 +19,8 @@ html body {
 }
 #bigWrap{
 	width: 550px;
-	margin: 10px auto 10px;
+	margin: 0 auto;
+	padding: 10px 0 10px 0;
 }
 
 #content{
