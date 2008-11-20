@@ -1,0 +1,2 @@
+RewriteEngine 	On
+RewriteRule 	^mail\.cgi(.*)$ 	http://mail.asusoda.com/mail.cgi$1
